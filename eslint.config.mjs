@@ -14,6 +14,9 @@ import {
   resolveEslintTool,
 } from './tools/eslint/eslint.config_utils.mjs';
 import nodeCore from './tools/eslint/eslint-plugin-node-core.js';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const { globalIgnores } = await importEslintTool('eslint/config');
 const { default: js } = await importEslintTool('@eslint/js');
